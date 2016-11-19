@@ -30,13 +30,13 @@
     document.getElementById('cv-profile')
   );
 
- ReactDom.render(
-   <WorkExperience url="/api/WorkExperiences" pollInterval={18000} />,
-   document.getElementById('cv-work')
- );
-
- ReactDom.render(
-   <ReposContainer user="abhustoft"/>,
-   document.getElementById('cv-gitHub')
- );
+ // ReactDom.render(
+ //   <WorkExperience url="/api/WorkExperiences" pollInterval={18000} />,
+ //   document.getElementById('cv-work')
+ // );
+ //
+ // ReactDom.render(
+ //   <ReposContainer user="abhustoft"/>,
+ //   document.getElementById('cv-gitHub')
+ // );
 

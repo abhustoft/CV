@@ -39,20 +39,17 @@ var MainContent = React.createClass({
     const paragraphs = this.state.profileTexts
       .map(function({Paragraph, Sequence}) {
         return (
-          <div key={Sequence}>
-            <p>{Paragraph}</p>
-          </div>
+          <AccordionPanel key={Sequence} pad="medium" heading="Konsulentprofil">
+            <div>{Paragraph}</div>
+          </AccordionPanel>
         );
       })
       .sort((a, b) => {return a.key - b.key;});
     return (
       <div>
         <Accordion>
-          <AccordionPanel pad="medium" heading="Konsulentprofil">
-            <p>{paragraphs}</p>
-          </AccordionPanel>
+            {paragraphs}
         </Accordion>
-
       </div>
     );
   }
