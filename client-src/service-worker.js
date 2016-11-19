@@ -2,7 +2,7 @@
 'use strict';
 
 var config = {
-  version: 'v10',
+  version: 'v11',
   // Initial caching at startup:
   staticCacheItems: [
     '/app/css/screen.css',

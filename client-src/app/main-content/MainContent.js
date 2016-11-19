@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
-// require ('../../node_modules/grommet/grommet.min.css');
 require('./MainContent.styl');
 
 var MainContent = React.createClass({
@@ -36,7 +35,6 @@ var MainContent = React.createClass({
   },
   render: function() {
     const {dispatch, myState} = this.props;
-    console.log('Main content got state:', myState);
 
     const paragraphs = this.state.profileTexts
       .map(function({Paragraph, Sequence}) {
@@ -50,10 +48,7 @@ var MainContent = React.createClass({
     return (
       <div>
         <Accordion>
-          <AccordionPanel heading="First Panel">
-            <p>{paragraphs}</p>
-          </AccordionPanel>
-          <AccordionPanel heading="Second Panel">
+          <AccordionPanel pad="medium" heading="Konsulentprofil">
             <p>{paragraphs}</p>
           </AccordionPanel>
         </Accordion>
