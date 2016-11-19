@@ -2,13 +2,9 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { connect } from 'react-redux'
 
-import {Photo} from '../photo/photo';
-import {Description} from '../description/description';
-import {KeyInfo} from '../keyInfo/keyInfo';
-import {Projects} from '../projects/projects';
-
-import { editNew } from '../redux/actions'
-
+import Accordion from 'grommet/components/Accordion';
+import AccordionPanel from 'grommet/components/AccordionPanel';
+// require ('../../node_modules/grommet/grommet.min.css');
 require('./MainContent.styl');
 
 var MainContent = React.createClass({
@@ -41,19 +37,27 @@ var MainContent = React.createClass({
   render: function() {
     const {dispatch, myState} = this.props;
     console.log('Main content got state:', myState);
+
+    const paragraphs = this.state.profileTexts
+      .map(function({Paragraph, Sequence}) {
+        return (
+          <div key={Sequence}>
+            <p>{Paragraph}</p>
+          </div>
+        );
+      })
+      .sort((a, b) => {return a.key - b.key;});
     return (
-      <div className="cv-first-page">
-        <div className="cv-profile">
-          <Description
-            show={myState.showDescription}
-            profileTexts = {this.state.profileTexts}
-            name = {this.state.name}
-            dispatch={dispatch}
-          />
-          <Photo dispatch={dispatch} showPhoto={myState.showingPhoto}/>
-        </div>
-        <Projects dispatch={dispatch} showProjects={myState.showProjects}/>
-        <KeyInfo />
+      <div>
+        <Accordion>
+          <AccordionPanel heading="First Panel">
+            <p>{paragraphs}</p>
+          </AccordionPanel>
+          <AccordionPanel heading="Second Panel">
+            <p>{paragraphs}</p>
+          </AccordionPanel>
+        </Accordion>
+
       </div>
     );
   }

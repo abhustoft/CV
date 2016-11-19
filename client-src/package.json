@@ -11,7 +11,6 @@
     "build:prod:min": "PROD=1 ./node_modules/webpack/bin/webpack.js -p",
     "build:watch": "./node_modules/webpack/bin/webpack.js --watch"
   },
-
   "author": "Alf Bjørn Hustoft",
   "license": "ISC",
   "devDependencies": {
@@ -37,6 +36,8 @@
     "css-loader": "^0.25.0",
     "eslint-loader": "^1.5.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "grommet": "^1.0.1",
+    "grommet-toolbox": "^1.0.5",
     "harmonize": "^1.4.1",
     "jquery": "^3.1.1",
     "marked": "^0.3.6",

@@ -51,6 +51,10 @@ var config = {
                 exclude: /node_modules/
             },
             {
+              test: /\.scss$/,
+              loader: 'style!css!sass?outputStyle=compressed'
+            },
+            {
                 test: /\.(jpg|png)$/,
                 loader: "url?limit=2",
                 include: images
@@ -65,6 +69,15 @@ var config = {
                 loader: "file?name=[path][name].[hash].[ext]"
             }
         ]
+    },
+    sassLoader: {
+      includePaths: [
+        './node_modules',
+        // this is required only for NPM < 3.
+        // Dependencies are flat in NPM 3+ so pointing to
+        // the internal grommet/node_modules folder is not needed
+        './node_modules/grommet/node_modules'
+      ]
     },
     plugins: [
         definePlugin,
